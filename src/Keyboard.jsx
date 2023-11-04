@@ -1,18 +1,60 @@
-// import "./Keyboard.css";
-// import { Board } from "./Board";
+import "./Keyboard.css";
 
-// let board = Array.from({ length: 28 });
+let keyboard = [
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  "Enter",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+  "Del",
+];
 
-// const button = ({value,onClick}) ={
-//     return <button className="key" onClick = {() => onClick(value)}>{value}</button>
-// };
+const Button = (props) => {
+  const handleClick = (e) => {
+    props.onClick(e.target.innerText);
+  };
+  return (
+    <button className="key" onClick={handleClick} id={`keyboard${props.id}`}>
+      {props.value}
+    </button>
+  );
+};
 
-// export const Keyboard = () => {
-//   return (
-//     <div className="keyboard">
-//       {board.map((element, index) => {
-//         return <button key={index} id={index}></button>;
-//       })}
-//     </div>
-//   );
-// };
+export const Keyboard = ({ onClick }) => {
+  return (
+    <div className="keyboard">
+      {keyboard.map((element, index) => {
+        return (
+          <Button
+            key={index}
+            id={index}
+            value={element}
+            onClick={onClick}
+          ></Button>
+        );
+      })}
+    </div>
+  );
+};

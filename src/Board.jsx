@@ -2,19 +2,19 @@ import "./Board.css";
 
 let guessingBoard = Array.from({ length: 30 });
 
-export const Board = (props) => {
+const Board = (props) => {
   return (
-    <div className="board" id={props.id}>
-      {props.id}
+    <div className="board" id={`guessingBoard${props.id}`}>
+      {props.value[props.id]}
     </div>
   );
 };
 
-export const WholeBoard = () => {
+export const WholeBoard = (props) => {
   return (
     <div className="whole-board">
-      {guessingBoard.map((element, index) => {
-        return <Board key={index} id={index}></Board>;
+      {guessingBoard.map((e, index) => {
+        return <Board key={index} id={index} value={props.letter}></Board>;
       })}
     </div>
   );

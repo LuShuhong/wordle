@@ -9,6 +9,8 @@
 
 .whole-board {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 50px;
+  justify-content: center;
+  grid-template-rows: repeat(5, 60px);
+  grid-template-columns: repeat(5, 60px);
 }
