@@ -1,4 +1,5 @@
 import "./Keyboard.css";
+import { Button } from "./Button";
 
 let keyboard = [
   "Q",
@@ -20,7 +21,6 @@ let keyboard = [
   "J",
   "K",
   "L",
-  "Enter",
   "Z",
   "X",
   "C",
@@ -28,19 +28,7 @@ let keyboard = [
   "B",
   "N",
   "M",
-  "Del",
 ];
-
-const Button = (props) => {
-  const handleClick = (e) => {
-    props.onClick(e.target.innerText);
-  };
-  return (
-    <button className="key" onClick={handleClick} id={`keyboard${props.id}`}>
-      {props.value}
-    </button>
-  );
-};
 
 export const Keyboard = ({ onClick }) => {
   return (
