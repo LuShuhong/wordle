@@ -6,14 +6,13 @@ const Board = (props) => {
   let style;
   let wordIndex = props.word.current[props.id];
   let letterIndex = props.letter[props.id];
-  console.log(wordIndex);
-  console.log(letterIndex);
-  if (props.enter && wordIndex === letterIndex) {
-    style = { backgroundColor: "#79bd8b" };
-  } else if (props.enter && props.word.current.includes(letterIndex)) {
-    style = { backgroundColor: "#d4ce79" };
+  if (props.boardNumber === props.guesses.length) {
+    if (props.enter && wordIndex === letterIndex) {
+      style = { backgroundColor: "#79bd8b" };
+    } else if (props.enter && props.word.current.includes(letterIndex)) {
+      style = { backgroundColor: "#d4ce79" };
+    }
   }
-
   return (
     <div className="board" id={`guessingBoard${props.id}`} style={style}>
       {props.letter[props.id]}
@@ -32,6 +31,8 @@ export const WholeBoard = (props) => {
             letter={props.letter}
             word={props.word}
             enter={props.enter}
+            boardNumber={props.boardNumber}
+            guesses={props.guesses}
           ></Board>
         );
       })}

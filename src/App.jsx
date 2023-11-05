@@ -13,11 +13,7 @@ function App() {
   );
   console.log(word);
   const [letter, setLetter] = useState("");
-  const [letter2, setLetter2] = useState("");
-  const [letter3, setLetter3] = useState("");
-  const [letter4, setLetter4] = useState("");
-  const [letter5, setLetter5] = useState("");
-
+  const [guesses, setGuesses] = useState([]);
   const [enter, setEnter] = useState(false);
 
   const letterClick = (key) => {
@@ -31,22 +27,55 @@ function App() {
   const enterClick = (e) => {
     // setLetter((letter) => "");
     setEnter((i) => !i);
+    setGuesses((guesses) => [...guesses, e]);
   };
 
   console.log(enter);
   return (
     <>
       <p>{letter}</p>
-      <WholeBoard letter={letter} word={word} enter={enter}></WholeBoard>
-      <WholeBoard letter={letter2} word={word} enter={enter}></WholeBoard>
-      <WholeBoard letter={letter3} word={word} enter={enter}></WholeBoard>
-      <WholeBoard letter={letter4} word={word} enter={enter}></WholeBoard>
-      <WholeBoard letter={letter5} word={word} enter={enter}></WholeBoard>
+      <p>{guesses}</p>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={1}
+        guesses={guesses}
+      ></WholeBoard>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={2}
+        guesses={guesses}
+      ></WholeBoard>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={3}
+        guesses={guesses}
+      ></WholeBoard>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={4}
+        guesses={guesses}
+      ></WholeBoard>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={5}
+        guesses={guesses}
+      ></WholeBoard>
       <Keyboard onClick={letterClick}></Keyboard>
       <EnterButton
         letter={letter}
         word={word}
         onClick={enterClick}
+        guesses={guesses}
       ></EnterButton>
     </>
   );
