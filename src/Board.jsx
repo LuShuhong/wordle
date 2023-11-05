@@ -10,7 +10,7 @@ const Board = (props) => {
         {props.letter[props.id]}
       </div>
     );
-  } else if (props.boardNumber === props.guesses.length) {
+  } else if (props.boardNumber <= props.guesses.length) {
     let wordIndex = props.word.current[props.id];
     let letterIndex = props.guesses[props.boardNumber - 1][props.id];
     if (wordIndex === letterIndex) {

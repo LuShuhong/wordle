@@ -34,8 +34,10 @@ function App() {
   console.log(enter);
   return (
     <>
-      <p>{letter}</p>
-      <p>{guesses}</p>
+      <p>to employ clear function</p>
+      <p>to restrict words less than 5 charaters</p>
+      <p>style keyboard buttons</p>
+      <p>import random words</p>
       <WholeBoard
         letter={letter}
         word={word}
@@ -69,6 +71,13 @@ function App() {
         word={word}
         enter={enter}
         boardNumber={5}
+        guesses={guesses}
+      ></WholeBoard>
+      <WholeBoard
+        letter={letter}
+        word={word}
+        enter={enter}
+        boardNumber={6}
         guesses={guesses}
       ></WholeBoard>
       <Keyboard onClick={letterClick}></Keyboard>
