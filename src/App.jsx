@@ -21,12 +21,20 @@ function App() {
     });
   };
 
+  const enterClick = (e) => {
+    setLetter((letter) => "");
+  };
+
   return (
     <>
       <p>{letter}</p>
       <WholeBoard letter={letter}></WholeBoard>
       <Keyboard onClick={letterClick}></Keyboard>
-      <EnterButton></EnterButton>
+      <EnterButton
+        letter={letter}
+        word={word}
+        onClick={enterClick}
+      ></EnterButton>
     </>
   );
 }
