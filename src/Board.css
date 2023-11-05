@@ -8,9 +8,11 @@
 }
 
 .whole-board {
-  display: grid;
+  /* display: grid;
   margin: 50px;
   justify-content: center;
   grid-template-rows: repeat(5, 60px);
-  grid-template-columns: repeat(5, 60px);
+  grid-template-columns: repeat(5, 60px); */
+  display: flex;
+  justify-content: center;
 }

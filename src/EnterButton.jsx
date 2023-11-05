@@ -11,6 +11,6 @@ import { Button } from "./Button";
 //     );
 //   };
 
-export const EnterButton = ({ letter, onClick }) => {
+export const EnterButton = ({ letter, word, onClick }) => {
   return <Button value={`ENTER`} onClick={onClick}></Button>;
 };
