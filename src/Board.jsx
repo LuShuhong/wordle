@@ -7,9 +7,9 @@ const Board = (props) => {
   let wordIndex = props.word.current[props.id];
   let letterIndex = props.letter[props.id];
   if (props.boardNumber === props.guesses.length) {
-    if (props.enter && wordIndex === letterIndex) {
+    if (wordIndex === letterIndex) {
       style = { backgroundColor: "#79bd8b" };
-    } else if (props.enter && props.word.current.includes(letterIndex)) {
+    } else if (props.word.current.includes(letterIndex)) {
       style = { backgroundColor: "#d4ce79" };
     }
   }

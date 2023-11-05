@@ -14,7 +14,7 @@ function App() {
   console.log(word);
   const [letter, setLetter] = useState("");
   const [guesses, setGuesses] = useState([]);
-  const [enter, setEnter] = useState(false);
+  const [enter, setEnter] = useState(true);
 
   const letterClick = (key) => {
     setLetter((letter) => {
@@ -25,9 +25,9 @@ function App() {
   };
 
   const enterClick = (e) => {
-    // setLetter((letter) => "");
-    setEnter((i) => !i);
+    // setEnter((i) => !i);
     setGuesses((guesses) => [...guesses, e]);
+    // setLetter((letter) => "");
   };
 
   console.log(enter);
