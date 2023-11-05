@@ -12,6 +12,7 @@ function App() {
     word_list[Math.floor(Math.random() * (word_list.length + 1))]
   );
   console.log(word);
+  // the letter state is not neccesaily needed
   const [letter, setLetter] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [enter, setEnter] = useState(true);
@@ -27,7 +28,7 @@ function App() {
   const enterClick = (e) => {
     // setEnter((i) => !i);
     setGuesses((guesses) => [...guesses, e]);
-    // setLetter((letter) => "");
+    setLetter((letter) => "");
   };
 
   console.log(enter);
