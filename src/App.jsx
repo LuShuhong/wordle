@@ -6,6 +6,7 @@ import { word_list } from "./word_list";
 import { WholeBoard } from "./Board";
 import { Keyboard } from "./Keyboard";
 import { EnterButton } from "./EnterButton";
+import { DelButton } from "./DelButton";
 
 function App() {
   const word = useRef(
@@ -29,6 +30,10 @@ function App() {
     // setEnter((i) => !i);
     setGuesses((guesses) => [...guesses, e]);
     setLetter((letter) => "");
+  };
+
+  const delClick = (e) => {
+    setLetter((letter) => letter.slice(0, -1));
   };
 
   console.log(enter);
@@ -87,6 +92,7 @@ function App() {
         onClick={enterClick}
         guesses={guesses}
       ></EnterButton>
+      <DelButton letter={letter} onClick={delClick}></DelButton>
     </>
   );
 }
