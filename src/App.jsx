@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { wordList } from "./WordList";
+import { wordList } from "./word_list";
 import { WholeBoard } from "./Board";
 import { Keyboard } from "./Keyboard";
 import { EnterButton } from "./EnterButton";
@@ -26,10 +26,14 @@ function App() {
     });
   };
 
-  const enterClick = (e) => {
+  const enterClick = () => {
     // setEnter((i) => !i);
-    setGuesses((guesses) => [...guesses, e]);
-    setLetter((letter) => "");
+    if (letter.length < 5) {
+      alert("Please enter a five-letter word");
+    } else {
+      setGuesses((guesses) => [...guesses, letter]);
+      setLetter((letter) => "");
+    }
   };
 
   const delClick = () => {
@@ -41,14 +45,11 @@ function App() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Enter") {
-        alert(
-          "enter keypress not valid yet, please click the enter button instead"
-        );
-      }
-      if (e.key === "Backspace") {
+        enterClick();
+      } else if (e.key === "Backspace") {
         delClick();
       } else if (/^[A-Za-z]$/.test(e.key)) {
-        letterClick(e.key);
+        letterClick(e.key.toLowerCase());
       }
     };
 
@@ -57,7 +58,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [letter, guesses]);
 
   return (
     <>

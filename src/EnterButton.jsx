@@ -11,13 +11,9 @@ import { Button } from "./Button";
 //     );
 //   };
 
-export const EnterButton = ({ letter, word, onClick }) => {
+export const EnterButton = ({ letter, onClick }) => {
   const handleClick = () => {
-    if (letter.length < 5) {
-      alert("Please enter a five-letter word");
-    } else {
-      onClick(letter);
-    }
+    onClick();
   };
 
   return <Button value={`ENTER`} onClick={handleClick}></Button>;
