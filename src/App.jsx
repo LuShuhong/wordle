@@ -41,11 +41,13 @@ function App() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Enter") {
-        enterClick;
+        alert(
+          "enter keypress not valid yet, please click the enter button instead"
+        );
       }
       if (e.key === "Backspace") {
         delClick();
-      } else if (e.key.length === 1 && typeof e.key === "string") {
+      } else if (/^[A-Za-z]$/.test(e.key)) {
         letterClick(e.key);
       }
     };
