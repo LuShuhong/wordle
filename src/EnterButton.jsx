@@ -13,7 +13,12 @@ import { Button } from "./Button";
 
 export const EnterButton = ({ letter, word, onClick }) => {
   const handleClick = () => {
-    onClick(letter);
+    if (letter.length < 5) {
+      alert("Please enter a five-letter word");
+    } else {
+      onClick(letter);
+    }
   };
+
   return <Button value={`ENTER`} onClick={handleClick}></Button>;
 };

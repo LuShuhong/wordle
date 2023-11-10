@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { word_list } from "./word_list";
+import { wordList } from "./WordList";
 import { WholeBoard } from "./Board";
 import { Keyboard } from "./Keyboard";
 import { EnterButton } from "./EnterButton";
@@ -10,7 +10,7 @@ import { DelButton } from "./DelButton";
 
 function App() {
   const word = useRef(
-    word_list[Math.floor(Math.random() * (word_list.length + 1))]
+    wordList[Math.floor(Math.random() * (wordList.length + 1))]
   );
   console.log(word);
   // the letter state is not neccesaily needed
@@ -32,17 +32,35 @@ function App() {
     setLetter((letter) => "");
   };
 
-  const delClick = (e) => {
+  const delClick = () => {
     setLetter((letter) => letter.slice(0, -1));
   };
 
   console.log(enter);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        enterClick;
+      }
+      if (e.key === "Backspace") {
+        delClick();
+      } else if (e.key.length === 1 && typeof e.key === "string") {
+        letterClick(e.key);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <>
       <h1>Wordle</h1>
-      <p>to restrict words less than 5 charaters</p>
-      <p>style keyboard buttons</p>
-      <p>import random words</p>
+
       <WholeBoard
         letter={letter}
         word={word}
