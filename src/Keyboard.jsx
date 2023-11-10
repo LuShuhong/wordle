@@ -1,5 +1,7 @@
 import "./Keyboard.css";
 import { Button } from "./Button";
+import { EnterButton } from "./EnterButton";
+import { DelButton } from "./DelButton";
 
 let keyboard = [
   "q",
@@ -32,17 +34,19 @@ let keyboard = [
 
 export const Keyboard = ({ onClick }) => {
   return (
-    <div className="keyboard">
-      {keyboard.map((element, index) => {
-        return (
-          <Button
-            key={index}
-            id={index}
-            value={element}
-            onClick={onClick}
-          ></Button>
-        );
-      })}
-    </div>
+    <>
+      <div className="keyboard">
+        {keyboard.map((element, index) => {
+          return (
+            <Button
+              key={index}
+              id={index}
+              value={element}
+              onClick={onClick}
+            ></Button>
+          );
+        })}
+      </div>
+    </>
   );
 };

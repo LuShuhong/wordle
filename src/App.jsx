@@ -39,7 +39,7 @@ function App() {
   console.log(enter);
   return (
     <>
-      <p>to employ clear function</p>
+      <h1>Wordle</h1>
       <p>to restrict words less than 5 charaters</p>
       <p>style keyboard buttons</p>
       <p>import random words</p>

@@ -17,6 +17,8 @@ const Board = (props) => {
       style = { backgroundColor: "#79bd8b" };
     } else if (props.word.current.includes(letterIndex)) {
       style = { backgroundColor: "#d4ce79" };
+    } else {
+      style = { backgroundColor: "grey" };
     }
     return (
       <div className="board" id={`guessingBoard${props.id}`} style={style}>
